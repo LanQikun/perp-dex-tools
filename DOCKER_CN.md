@@ -166,7 +166,7 @@ docker-compose up --build
   ]
 }
 ```
-例子（我电脑上的，你的或许不同）：
+例子（我电脑上的，你的或许不同。注意：在"experimental": false后添加一个逗号）：
 ```json
 {
   "builder": {
@@ -185,7 +185,6 @@ docker-compose up --build
   ]
 }
 ```
-注意：在"experimental": false后添加一个逗号
 点击 "Apply & Restart"
 
 **2. 如果 git 依赖下载失败：**
