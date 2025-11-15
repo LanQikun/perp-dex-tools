@@ -27,7 +27,9 @@ RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 # Install Python dependencies
 RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir -r requirements.txt
+    pip install --no-cache-dir -r requirements.txt && \
+    pip install --no-cache-dir -r para_requirements.txt && \
+    pip install --no-cache-dir -r apex_requirements.txt
 
 # Copy the entire project
 COPY . .

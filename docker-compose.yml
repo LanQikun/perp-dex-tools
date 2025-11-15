@@ -16,7 +16,7 @@ services:
     restart: unless-stopped
     # 用你的交易参数覆盖
     command: [
-      "--exchange", "grvt",
+      "--exchange", "paradex",
       "--ticker", "ETH",
       "--quantity", "0.1",
       "--take-profit", "0.02",
