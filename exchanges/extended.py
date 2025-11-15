@@ -13,7 +13,7 @@ from .base import BaseExchangeClient, OrderResult, OrderInfo, query_retry
 from helpers.logger import TradingLogger
 
 from x10.perpetual.trading_client import PerpetualTradingClient
-from x10.perpetual.configuration import STARKNET_MAINNET_CONFIG
+from x10.perpetual.configuration import MAINNET_CONFIG
 from x10.perpetual.accounts import StarkPerpetualAccount
 from x10.perpetual.orders import TimeInForce, OrderSide
 
@@ -84,7 +84,7 @@ class ExtendedClient(BaseExchangeClient):
 
         self.stark_account = StarkPerpetualAccount(vault=vault, private_key=private_key, public_key=public_key, api_key=api_key)
         # 按照 trading_client.py 的方式初始化
-        self.stark_config = STARKNET_MAINNET_CONFIG
+        self.stark_config = MAINNET_CONFIG
         self.perpetual_trading_client = PerpetualTradingClient(self.stark_config, self.stark_account)
 
         # Initialize logger using the same format as helpers
@@ -116,7 +116,7 @@ class ExtendedClient(BaseExchangeClient):
         
         self._stop_event.clear()
         
-        host = STARKNET_MAINNET_CONFIG.stream_url
+        host = MAINNET_CONFIG.stream_url
         self._tasks = [
             # connect to the account update stream (for order updates)
             asyncio.create_task(_stream_worker(
